@@ -15,3 +15,18 @@ for record in filtered_records:
     print(f"Name: {record['Name']}")
     print(f"Grade: {record['Grade']}")
 print("--------------------")
+
+
+def read_csv(file):
+    records = []
+    with open(file, 'r') as file1:
+        csv_reader = csv.DictReader(file1)
+        for row in csv_reader:
+            records.append(row)
+    return records
+def calc_total(n):
+    total = sum(float(record['Grade']) for record in n)
+    return total
+def filter_records():
+    filtered_records = [record for record in records if float(record['Grade']) >= 80.0]
+    return filtered_records
